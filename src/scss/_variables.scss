@@ -1,0 +1,36 @@
+$pink: #f2a0a0;
+$pink-dark: #b16b6b;
+$pink-light: #c7b0b0;
+
+$theme-colors: (
+  (
+    'pink': $pink,
+    'pink-light': $pink-light,
+    'pink-dark': $pink-dark
+  )
+);
+
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
+
+$spacer: 1rem;
+$spacers: (
+  (
+    6: (
+      $spacer * 4,
+    ),
+    7: (
+      $spacer * 6,
+    ),
+    8: (
+      $spacer * 8,
+    ),
+  )
+);
+
+$input-btn-border-width: 0;
+$btn-focus-box-shadow: 0;
+$list-group-item-padding-x: 0;
+$list-group-item-padding-y: .25rem;
+$input-border-width: 0;
