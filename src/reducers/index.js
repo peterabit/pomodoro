@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
-import todos from 'features/todos/todosSlice'
+import todo from 'features/todos/todoSlice'
+import clock from 'features/clock/clockSlice'
 
-export default combineReducers({ todos })
+export default combineReducers({ todo, clock })

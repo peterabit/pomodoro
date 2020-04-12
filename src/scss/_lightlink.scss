@@ -1,0 +1,6 @@
+.link-light {
+  color: darken($light, 10%);
+  &:hover, &.active { 
+    color: lighten($light, 15%);
+  } 
+}

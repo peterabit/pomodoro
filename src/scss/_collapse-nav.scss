@@ -1,0 +1,29 @@
+.collapse-nav {
+  display: flex;
+  align-items: center;
+  margin-left: .25rem;
+  margin-right: .25rem;
+
+  * + .collapse-item {
+    margin-left: 1rem;
+  }
+
+  &:not(.show) {
+    & > .collapse-item.active {
+      margin-left: 0;
+    }
+    & > .collapse-item:not(.active) {
+      display: none;
+    }
+  }
+
+  &.collapsing {
+    height: auto;
+    width: 0;
+    transition: width 0.35s;
+  }
+}
+
+ul.collapse-nav {
+  list-style: none;
+}

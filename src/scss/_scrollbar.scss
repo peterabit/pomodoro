@@ -1,0 +1,19 @@
+$border-radius: 3.5px;
+.scrollbar {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 7px;
+    border-radius: $border-radius;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: $border-radius;
+    background-color: rgb(197, 197, 197);
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    background-color: rgb(240, 240, 240);
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+}

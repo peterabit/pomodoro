@@ -1,6 +1,7 @@
 import React from 'react'
-import TodoList from 'features/todos/TodoList'
+import UndoneTodoList from 'features/todos/UndoneTodoList'
 import Clock from 'features/clock/Clock'
+import TodoInput from 'features/todos/TodoInput'
 
 const Index = () => {
   return (
@@ -10,8 +11,9 @@ const Index = () => {
           <div className="col-7">
             <Clock />
           </div>
-          <div className="col-4">
-            <TodoList />
+          <div className="col-4 pt-5 d-flex flex-column justify-content-center">
+            <TodoInput />
+            <UndoneTodoList />
           </div>
         </div>
       </div>
