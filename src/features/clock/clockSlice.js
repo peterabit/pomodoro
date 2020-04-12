@@ -13,6 +13,9 @@ export const start = createAsyncThunk(
     countInterval = setInterval(() => {
       const { clock } = getState()
       if (+clock.time === 0) {
+        if (clock.mode === 'work') {
+          dispatch({ type: 'timesUp' })
+        }
         dispatch({ type: 'clock/toggleMode' })
       }
       dispatch({ type: 'countDown' })

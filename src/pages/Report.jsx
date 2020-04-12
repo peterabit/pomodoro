@@ -9,7 +9,7 @@ export default function Report() {
     <div className="container">
       <div className="row mt-8">
         <div className="col-7"></div>
-        <div className="col-4">
+        <div className="col-5 col-lg-4">
           <TodoInput />
           <div className="pb-3 d-flex align-items-center justify-content-between">
             <DatePicker />

@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pomodoro
 
-## Available Scripts
+## User story
+- 我可以記錄代辦任務
+- 我可以設定蕃茄鐘定時器
+- 我可以透過報表檢視使用狀況
 
-In the project directory, you can run:
+## Functional map
+- 待辦事項
+  - 設定待辦事項名稱或內容
+  - 設定待辦事項成已完成狀態
+  - 調整排列順序
+  - 任務分組
+- 蕃茄鐘
+  - 固定時間區間
+    - 主工作時間：25 分鐘
+    - 短休息時間：5 分鐘
+  - 時間倒數介面
+    - 顯示進行中待辦事項
+    - 有開始鍵能啟動倒數
+    - 能暫停倒數
+    - 能略過倒數（作廢）
+    - 顯示倒數時間
+    - 提示鈴聲選項
+- 狀態報表
+  - 當天使用蕃茄鐘的記錄與成效
+  - 當週使用蕃茄鐘的記錄與成效
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## 製作理念
+- 產品目標：
+  - 讓使用者更準確的預估每個工作所需要的時間，安排工作的順序，並且透過適當的時間分配有效率的執行
+- 目標群眾：
+  - 作業或報告總是不知道要花多久才能完成
+  - 不知道自己一天能完成多少進度
+  - 花費很多時間卻又覺得成效不彰
+  - 無法判斷事情的先後順序，經常在趕工
+- 使用體驗：
+  - 透過 25 : 5 的時間分配讓思緒更加專注
+  - 經過預估與實際執行時間的差異來評估和改進自己工作的效率
+  - 通過任務報表得知已完成事項，讓使用者知道自我提升的過程
+  - 凸顯每一次完成番茄鐘所帶來的成就感，以此提升使用者的動力
+- 設計：
+  - 在每一次番茄鐘被完成時，顯示收集的動畫，並在報表中統計

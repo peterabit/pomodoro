@@ -1,32 +1,41 @@
 import { createSlice } from '@reduxjs/toolkit'
+import getTodayString from 'utils/getTodayString'
 
 const getRandom = () => {
   return Math.floor(Math.random() * 1000000)
 }
 
-const getIndexById = ary =>
-  id => ary.findIndex(el => +el.id === +id)
+const getLocalstorage = key => {
+  try {
+    return JSON.parse(localStorage.getItem(key))
+  } catch (error) {
+    return false
+  }
+}
+
+const today = getTodayString()
 
 const todoSlice = createSlice({
   name: 'todo',
   initialState: {
-    todos: [],
+    todos: getLocalstorage('todos') || [],
     filter: 'all',
-    filterTypes: ['all', 'undone', 'done']
+    filterTypes: ['all', 'undone', 'done'],
+    dailyTotal: getLocalstorage('dailyTotal') || {}
   },
   reducers: {
     addTodo: {
       reducer: (state, action) => {
         const { id, text } = action.payload
-        state.todos.push({ id, text, completed: false })
+        state.todos.unshift({ id, text, completed: false })
       },
       prepare: text => {
         return { payload: { id: getRandom(), text } }
       }
     },
     toggleCompleted(state, action) {
-      const targetIndex = getIndexById(state.todos)(action.payload)
-      state.todos[targetIndex].completed = !state.todos[targetIndex].completed
+      const targetTodo = state.todos.find(el => +el.id === +action.payload)
+      targetTodo.completed = !targetTodo.completed
     },
     updateTodo(state, action) {
       const { id, text } = action.payload
@@ -39,6 +48,11 @@ const todoSlice = createSlice({
     },
     setFilter(state, action) {
       state.filter = action.payload
+    }
+  },
+  extraReducers: {
+    timesUp(state, action) {
+      state.dailyTotal[today] ? state.dailyTotal[today] += 1 : state.dailyTotal[today] = 1
     }
   }
 })

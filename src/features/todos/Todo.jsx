@@ -25,7 +25,7 @@ export default function Todo({
         type="text"
         value={text}
         onChange={(e) => updateTodo(e.target.value)}
-        className={`mr-2 border-0 flex-grow-1`}
+        className={`mr-2 border-0 flex-grow-1 form-control`}
         style={{ opacity: completed ? '.5' : '1' }}
       />
       <TextBtn onClick={deleteTodo} className={!completed ? 'disabled' : ''}>

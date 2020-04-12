@@ -5,8 +5,13 @@ import configureAppStore from "./configureStore";
 import './scss/index.scss'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import saveDataFromStore from 'utils/saveDataFromStore'
 
 const store = configureAppStore();
+store.subscribe(saveDataFromStore(store)({
+  todos: ({ todo }) => todo.todos,
+  daily_total: ({ todo }) => todo.dailyTotal
+}))
 
 ReactDOM.render(
   <Provider store={store}>

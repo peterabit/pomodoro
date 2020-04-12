@@ -13,7 +13,7 @@ function DatePicker({ className = '', ...attrs }) {
     <VendorDatePicker
       selected={startDate}
       onChange={setStartDate}
-      className={`border-0 w-100px ${className}`}
+      className={`border-0 form-control ${className}`}
       {...attrs}
     />
   )

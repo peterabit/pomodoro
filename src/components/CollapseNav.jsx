@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import Collapse from 'react-bootstrap/Collapse'
-import TextBtn from './TextBtn'
 
 const ctx = React.createContext()
 
@@ -24,9 +22,9 @@ const CollapseNav = ({ id, children, className, ...attrs }) => {
         const activeItem = document.querySelector(
           `#${id} .collapse-item.active`
         )
-        activeItem
-          ? (collapseNav.style.width = activeItem.scrollWidth + 'px')
-          : ''
+        if (activeItem) {
+          collapseNav.style.width = activeItem.scrollWidth + 'px'
+        }
       }
     }
   }, [open])
@@ -51,7 +49,7 @@ const CollapseNav = ({ id, children, className, ...attrs }) => {
   )
 }
 
-CollapseNav.Item = ({ children, className, onClick, active, ...attrs }) => {
+export const CollapseItem = ({ children, className, onClick, active, ...attrs }) => {
   const handleClick = useContext(ctx)
   return (
     <div
@@ -64,5 +62,4 @@ CollapseNav.Item = ({ children, className, onClick, active, ...attrs }) => {
   )
 }
 
-export const CollapseItem = CollapseNav.Item
 export default CollapseNav

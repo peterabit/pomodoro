@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addTodo } from './todoSlice'
 
-function TodoInput() {
+function TodoInput({ outline }) {
   const dispatch = useDispatch()
   const [input, setInput] = useState('')
   const handleChange = (e) => setInput(e.target.value)
@@ -20,8 +20,13 @@ function TodoInput() {
         className="form-control border-bottom py-0"
       />
       <button
-        className="ml-2 btn btn-pink btn-sm flex-shrink-0 text-white"
+        className={`ml-2 py-0 btn ${
+          outline ? 'btn-outline-pink text-pink' : 'btn-pink text-white'
+        } btn-sm flex-shrink-0`}
         onClick={handleAdd}
+        style={{
+          height: '2.3em'
+        }}
       >
         新增
       </button>

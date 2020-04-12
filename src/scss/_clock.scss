@@ -1,8 +1,6 @@
 .clock {
-  width: 400px;
-  height: 400px;
+  @include circle(400px);
   border: 10px;
   border-width: 7px;
   border-style: solid;
-  border-radius: 50%;
 }
