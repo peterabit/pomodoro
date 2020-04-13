@@ -1,17 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import getTodayString from 'utils/getTodayString'
 import { WORK_TIMESUP } from 'features/clock/clockSlice'
+import getFromLocalstorage from 'utils/getFromLocalStorage'
 
 const getRandom = () => {
   return Math.floor(Math.random() * 1000000)
-}
-
-const getLocalstorage = key => {
-  try {
-    return JSON.parse(localStorage.getItem(key))
-  } catch (error) {
-    return false
-  }
 }
 
 const today = getTodayString()
@@ -19,10 +12,10 @@ const today = getTodayString()
 const todoSlice = createSlice({
   name: 'todo',
   initialState: {
-    todos: getLocalstorage('todos') || [],
+    todos: getFromLocalstorage('todos') || [],
     filter: 'all',
     filterTypes: ['all', 'undone', 'done'],
-    dailyTotal: getLocalstorage('dailyTotal') || {}
+    dailyTotal: getFromLocalstorage('daily_total') || {}
   },
   reducers: {
     addTodo: {
@@ -53,6 +46,7 @@ const todoSlice = createSlice({
   },
   extraReducers: {
     [WORK_TIMESUP]: (state, action) => {
+      console.log(state.dailyTotal[today])
       state.dailyTotal[today] ? state.dailyTotal[today] += 1 : state.dailyTotal[today] = 1
     }
   }

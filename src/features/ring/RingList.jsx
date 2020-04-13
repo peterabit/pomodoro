@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import RingItem from './RingItem'
 
-const RingList = ({ className, ...attrs }) => {
+const RingList = ({ className }) => {
   const rings = useSelector(({ ring }) => ring.rings)
   const rNames = Object.keys(rings) || []
   return (

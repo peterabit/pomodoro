@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
-
+import { play } from 'features/ring/ringSlice'
 let countInterval = null
 
 export const WORK_TIMESUP = 'WORK_TIMESUP'
@@ -11,22 +11,25 @@ export const countDown = createAction(COUNT_DOWM)
 
 export const start = createAsyncThunk(
   'clock/start',
-  async (p, thunkAPI) => {
+  async (payload, thunkAPI) => {
     const { getState, dispatch } = thunkAPI
     const { status } = getState().clock
     if (status === 'running') {
       throw new Error()
     }
     countInterval = setInterval(() => {
-      const { clock } = getState()
+      const { clock, ring } = getState()
+      const { workRing, restRing } = ring
       if (+clock.time === 0) {
         if (clock.mode === 'work') {
           dispatch(workTimesUp())
+          dispatch(play(workRing))
         } else {
           dispatch(restTimesUp())
+          dispatch(play(restRing))
         }
       }
-      dispatch({type: 'clock/countDown'})
+      dispatch({ type: 'clock/countDown' })
     }, 1000);
   }
 )
@@ -78,6 +81,9 @@ const clockSlice = createSlice({
   extraReducers: {
     [start.fulfilled]: (state, action) => {
       state.status = 'running'
+    },
+    [start.rejected]: (state, action) => {
+      console.log(action.payload)
     },
     [WORK_TIMESUP](state, action) {
       const nextMode = 'rest'
