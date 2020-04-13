@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setFilter } from 'features/todos/todoSlice'
 import CollapseNav, { CollapseItem } from 'components/CollapseNav'
-import TextBtn from 'components/TextBtn'
+import Button from 'react-bootstrap/Button'
 
 function TodoFilterNav() {
   const { filter, filterTypes } = useSelector(({ todo }) => ({
@@ -18,12 +18,13 @@ function TodoFilterNav() {
           const active = filter === el
           return (
             <CollapseItem key={i} active={active}>
-              <TextBtn
-                className={`p-0 ${active ? '' : 'disabled'}`}
+              <Button
+                variant="link"
+                className={`p-0 ${active ? '' : 'opacity-weak'}`}
                 onClick={() => onClick(el)}
               >
                 {el}
-              </TextBtn>
+              </Button>
             </CollapseItem>
           )
         })}

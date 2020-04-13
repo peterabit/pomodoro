@@ -1,5 +1,5 @@
 import React from 'react'
-import TextBtn from 'components/TextBtn'
+import Button from 'react-bootstrap/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { start, stop, reset, toggleMode } from 'features/clock/clockSlice'
 
@@ -12,14 +12,16 @@ const ClockControl = () => {
   const status = useSelector(({ clock }) => clock.status)
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <TextBtn
+      <Button
+        variant="link"
         onClick={toggle}
-        className="text-pink-light"
+        className="opacity-weak"
         style={{ fontSize: '20px' }}
       >
         <i className="fas fa-random"></i>
-      </TextBtn>
-      <TextBtn
+      </Button>
+      <Button
+        variant="link"
         style={{ fontSize: '32px' }}
         className="mt-2"
         onClick={status === 'running' ? stopCount : startCount}
@@ -29,14 +31,16 @@ const ClockControl = () => {
         ) : (
           <i className="fas fa-play" />
         )}
-      </TextBtn>
-      <TextBtn
+      </Button>
+      <Button
+        variant="link"
         onClick={resetClock}
-        className="mt-2 text-pink-light"
+        className="mt-2"
+        className="opacity-weak"
         style={{ fontSize: '20px' }}
       >
         <i className="fas fa-redo-alt" />
-      </TextBtn>
+      </Button>
     </div>
   )
 }

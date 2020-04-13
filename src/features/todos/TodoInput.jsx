@@ -21,7 +21,7 @@ function TodoInput({ outline }) {
       />
       <button
         className={`ml-2 py-0 btn ${
-          outline ? 'btn-outline-pink text-pink' : 'btn-pink text-white'
+          outline ? 'btn-outline-pink' : 'btn-pink text-white'
         } btn-sm flex-shrink-0`}
         onClick={handleAdd}
         style={{

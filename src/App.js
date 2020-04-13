@@ -8,16 +8,20 @@ import {
 import SideBar from 'components/SideBar'
 import Index from 'pages/Index'
 import Report from 'pages/Report'
+import Ring from 'pages/Ring'
 
 function App() {
   return (
     <>
       <Router>
         <SideBar />
-        <div style={{ marginRight: '60px' }}>
+        <div className="overflow-hidden" style={{ marginRight: '60px' }}>
           <Switch>
             <Route path="/report">
               <Report />
+            </Route>
+            <Route path="/ring">
+              <Ring />
             </Route>
             <Route path="/">
               <Index />

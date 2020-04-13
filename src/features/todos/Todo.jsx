@@ -1,5 +1,5 @@
 import React from 'react'
-import TextBtn from 'components/TextBtn'
+import Button from 'react-bootstrap/Button'
 
 export default function Todo({
   text,
@@ -14,23 +14,30 @@ export default function Todo({
       className="list-group-item d-flex align-items-center border-0"
       {...attrs}
     >
-      <TextBtn
-        className={`pl-0 ${completed ? 'disabled' : ''}`}
+      <Button
+        variant="link"
+        className={`${completed ? 'opacity-weak' : ''}`}
         onClick={toggleCompleted}
         style={{ width: '5em' }}
       >
         {completed ? 'done' : 'undone'}
-      </TextBtn>
+      </Button>
       <input
+        variant="link"
         type="text"
         value={text}
         onChange={(e) => updateTodo(e.target.value)}
-        className={`mr-2 border-0 flex-grow-1 form-control`}
-        style={{ opacity: completed ? '.5' : '1' }}
+        className={`mr-2 border-0 flex-grow-1 form-control ${
+          completed ? 'opacity-weak' : ''
+        }`}
       />
-      <TextBtn onClick={deleteTodo} className={!completed ? 'disabled' : ''}>
+      <Button
+        variant="link"
+        onClick={deleteTodo}
+        className={!completed ? 'opacity-weak' : ''}
+      >
         <i className="fas fa-times"></i>
-      </TextBtn>
+      </Button>
     </li>
   )
 }

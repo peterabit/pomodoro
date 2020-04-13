@@ -1,18 +1,15 @@
-$pink: #f57272;
+$pink: #e96a4a;
 $pink-dark: #b16b6b;
-$pink-light: #ddc4c4;
+$pink-light: lighten($pink, 20%);
+$gray-100: #f8f9fa;
 
 $theme-colors: (
   (
     'pink': $pink,
     'pink-light': $pink-light,
-    'pink-dark': $pink-dark
+    'pink-dark': $pink-dark,
   )
 );
-
-$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg: $font-size-base * 1.25 !default;
-$font-size-sm: $font-size-base * 0.875 !default;
 
 $spacer: 1rem;
 $spacers: (
@@ -29,9 +26,28 @@ $spacers: (
   )
 );
 
-$btn-focus-box-shadow: 0;
+$body-bg: $gray-100;
+$input-bg: $gray-100;
+$list-group-bg: $gray-100;
+$component-active-bg: transparent;
+
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
+
+$input-focus-box-shadow: none;
+$input-btn-focus-box-shadow: none;
+$input-border-width: 0;
+$input-border-width: 0;
+
+$btn-active-box-shadow: none;
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+$btn-disabled-opacity: 0.55;
+
+$link-hover-decoration: none;
+$link-color: $pink;
+// $link-hover-color: darken($link-color, 15%);
+
 $list-group-item-padding-x: 0;
-$list-group-item-padding-y: .25rem;
-$input-border-width: 0;
-$input-border-width: 0;
-$btn-disabled-opacity: .55;
+$list-group-item-padding-y: 0.25rem;

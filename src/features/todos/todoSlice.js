@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import getTodayString from 'utils/getTodayString'
+import { WORK_TIMESUP } from 'features/clock/clockSlice'
 
 const getRandom = () => {
   return Math.floor(Math.random() * 1000000)
@@ -51,7 +52,7 @@ const todoSlice = createSlice({
     }
   },
   extraReducers: {
-    timesUp(state, action) {
+    [WORK_TIMESUP]: (state, action) => {
       state.dailyTotal[today] ? state.dailyTotal[today] += 1 : state.dailyTotal[today] = 1
     }
   }
