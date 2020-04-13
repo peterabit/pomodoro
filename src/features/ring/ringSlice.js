@@ -64,14 +64,6 @@ const ringSlice = createSlice({
     },
     setWorkRing(state, action) {
       state.workRing = action.payload
-    },
-    play(state, action) {
-      const rId = action.payload
-      let ringAudio = state.ringAudios[rId]
-      if (!ringAudio) {
-        ringAudio = new Audio(process.env.PUBLIC_URL + '/audios/' + ringFile)
-        state.ringAudios[rId] = ringAudio
-      }
     }
   },
   extraReducers: builder => {
