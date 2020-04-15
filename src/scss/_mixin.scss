@@ -3,3 +3,31 @@
   height: $width;
   border-radius: 50%;
 }
+@mixin left-circle($width) {
+  width: $width / 2;
+  height: $width;
+  border-top-left-radius: 100% 50%;
+  border-bottom-left-radius: 100% 50%;
+}
+@mixin right-circle($width) {
+  width: $width / 2;
+  height: $width;
+  border-top-right-radius: 100% 50%;
+  border-bottom-right-radius: 100% 50%;
+}
+@mixin circle-border($direction: false, $border-width: 7px, $color: gray) {
+  border-color: $color;
+  border-style: solid;
+  border-top-width: $border-width;
+  border-bottom-width: $border-width;
+  @if $direction == left {
+    border-left-width: $border-width;
+    border-right-width: 0;
+  } @else if $direction == right {
+    border-right-width: $border-width;
+    border-left-width: 0;
+  } @else {
+    border-left-width: $border-width;
+    border-right-width: $border-width;
+  }
+}

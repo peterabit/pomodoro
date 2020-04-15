@@ -35,8 +35,8 @@ export const start = createAsyncThunk(
 )
 
 const modeTime = {
-  work: 5,
-  rest: 3
+  work: 1800,
+  rest: 300
 }
 
 const clockSlice = createSlice({

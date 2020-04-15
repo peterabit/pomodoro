@@ -1,6 +1,41 @@
 .clock {
-  @include circle(400px);
-  border: 10px;
-  border-width: 7px;
-  border-style: solid;
+  $width: 400px;
+  $border-width: 7px;
+  @include circle($width);
+  position: relative;
+
+  & .clock__slice {
+    &--left {
+      @include left-circle($width - 1);
+      @include circle-border(left, $border-width, $border-color);
+      position: absolute;
+      top: 0.5px;
+      left: 0.5px;
+    }
+    &--right {
+      @include right-circle($width - 1);
+      @include circle-border(right, $border-width, $border-color);
+      position: absolute;
+      top: 0.5px;
+      right: 0.5px;
+    }
+  }
+  & .clock__cover-slice {
+    &--right {
+      @include right-circle($width);
+      position: absolute;
+      right: 0;
+      background-color: $body-bg;
+      transform-origin: 0 50%;
+      transition: transform 1s linear;
+    }
+    &--left {
+      @include left-circle($width);
+      position: absolute;
+      left: 0;
+      background-color: $body-bg;
+      transform-origin: 100% 50%;
+      transition: transform 1s linear;
+    }
+  }
 }
