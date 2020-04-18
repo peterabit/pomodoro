@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
+import getFromLocalStorage from 'utils/getFromLocalStorage'
 import { play } from 'features/ring/ringSlice'
 let countInterval = null
 
@@ -42,10 +43,10 @@ const modeTime = {
 const clockSlice = createSlice({
   name: 'clock',
   initialState: {
-    mode: 'work', // work or rest
+    mode: getFromLocalStorage('clock').mode || 'work', // work or rest
     modeTime: modeTime,
-    status: 'stop ', // running, stop
-    time: modeTime['work']
+    status: 'stop', // running, stop
+    time: getFromLocalStorage('clock').time || modeTime['work']
   },
   reducers: {
     stop: {
