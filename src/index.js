@@ -10,7 +10,8 @@ import saveDataFromStore from 'utils/saveDataFromStore'
 const store = configureAppStore();
 store.subscribe(saveDataFromStore(store)({
   todos: ({ todo }) => todo.todos,
-  daily_total: ({ todo }) => todo.dailyTotal
+  work_times: ({ record }) => record.workTimes,
+  rings: ({ ring }) => ({ restRing: ring.restRing, workRing: ring.workRing })
 }))
 
 ReactDOM.render(

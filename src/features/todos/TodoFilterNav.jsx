@@ -4,7 +4,7 @@ import { setFilter } from 'features/todos/todoSlice'
 import CollapseNav, { CollapseItem } from 'components/CollapseNav'
 import Button from 'react-bootstrap/Button'
 
-function TodoFilterNav() {
+function TodoFilterNav({ ...attrs }) {
   const { filter, filterTypes } = useSelector(({ todo }) => ({
     filter: todo.filter,
     filterTypes: todo.filterTypes,
@@ -13,7 +13,7 @@ function TodoFilterNav() {
   const onClick = (type) => dispatch(setFilter(type))
   return (
     <>
-      <CollapseNav id="todosFilterNav">
+      <CollapseNav id="todosFilterNav" {...attrs}>
         {filterTypes.map((el, i) => {
           const active = filter === el
           return (

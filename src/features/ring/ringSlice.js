@@ -1,35 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { WORK_TIMESUP, REST_TIMESUP } from 'features/clock/clockSlice'
+import getFromLocalStorage from 'utils/getFromLocalStorage'
+import AudioPlayer from 'utils/audioPlayer'
 
-let ringAudio = null
-let playPromise = null
-let stopRing = ''
-
+let audioPlayer = null
 export const play = createAsyncThunk(
   'ring/play',
   async (rId, thunkAPI) => {
     try {
       const { getState } = thunkAPI
       const ringFile = getState().ring.rings[rId]
-
-      clearTimeout(stopRing)
-      if (playPromise !== null) {
-        await playPromise
-        ringAudio.pause()
+      if (audioPlayer !== null) {
+        audioPlayer.pause()
       }
-
-      ringAudio = new Audio(process.env.PUBLIC_URL + '/audios/' + ringFile)
-      ringAudio.loop = true
-      playPromise = ringAudio.play()
-
-      return new Promise(function (resolve, reject) {
-        stopRing = setTimeout(() => {
-          ringAudio.pause()
-          ringAudio = null
-          playPromise = null
-          resolve()
-        }, 2500)
-      })
+      audioPlayer = new AudioPlayer(process.env.PUBLIC_URL + '/audios/' + ringFile)
+      return audioPlayer.play().pauseAfterTimes(2500)
     } catch (error) {
       console.log(error)
     }
@@ -53,8 +38,8 @@ const ringSlice = createSlice({
       "Radiation_Meter": 'Radiation_Meter.mp3',
       "Timer-Bell": 'Timer-Bell.wav',
     },
-    restRing: 'Deep-Church-Bell-02',
-    workRing: 'Bugle_Tune',
+    restRing: getFromLocalStorage('rings')?.restRing || 'Deep-Church-Bell-02',
+    workRing: getFromLocalStorage('rings')?.workRing || 'Bugle_Tune',
     isPlaying: false, // playing or stop
     playingRing: '',
   },

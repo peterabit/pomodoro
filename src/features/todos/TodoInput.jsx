@@ -17,7 +17,7 @@ function TodoInput({ outline }) {
         type="text"
         value={input}
         onChange={handleChange}
-        className="form-control border-bottom py-0"
+        className="form-control border-bottom"
       />
       <button
         className={`ml-2 py-0 btn ${
