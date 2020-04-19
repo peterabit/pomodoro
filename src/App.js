@@ -12,24 +12,26 @@ import Ring from 'pages/Ring'
 
 function App() {
   return (
-    <>
-      <Router>
+    <Router>
+      <div className="side-container vh-100">
         <SideBar />
-        <div className="side-body px-3">
-          <Switch>
-            <Route path="/report">
-              <Report />
-            </Route>
-            <Route path="/ring">
-              <Ring />
-            </Route>
-            <Route path="/">
-              <Index />
-            </Route>
-          </Switch>
+        <div className="scrollbar h-100">
+          <div className="container h-100">
+            <Switch>
+              <Route path="/report">
+                <Report />
+              </Route>
+              <Route path="/ring">
+                <Ring />
+              </Route>
+              <Route path="/">
+                <Index />
+              </Route>
+            </Switch>
+          </div>
         </div>
-      </Router>
-    </>
+      </div>
+    </Router>
   );
 }
 

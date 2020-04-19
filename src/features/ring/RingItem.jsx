@@ -22,7 +22,7 @@ const RingItem = ({ rId, children }) => {
         <Button
           variant="outline-pink"
           block
-          className="text-left overflow-hidden"
+          className="text-left text-nowrap overflow-hidden"
           onClick={() => dispatch(play(rId))}
         >
           <i className="far fa-bell mr-2 opacity-weak"></i>

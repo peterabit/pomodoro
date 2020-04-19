@@ -1,5 +1,5 @@
 const getDateString = (date) => {
-  const dateIns = new Date(date)
+  const dateIns = date ? new Date(date) : new Date()
   const day = dateIns.getDate()
   const month = dateIns.getMonth() + 1
   const fullYear = dateIns.getFullYear()

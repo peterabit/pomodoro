@@ -7,7 +7,6 @@ import ChartController from 'features/record/ChartController'
 
 export default function Report() {
   return (
-    <div className="container">
       <div className="row py-4 py-md-7">
         <div className="col-12 mb-3 mb-md-5">
           <h1 className="text-pink">Record</h1>
@@ -24,6 +23,5 @@ export default function Report() {
           <FilterTodoList />
         </div>
       </div>
-    </div>
   )
 }

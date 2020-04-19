@@ -1,13 +1,11 @@
 $bar-width: 60px;
 .sidebar {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: fixed;
   right: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   width: $bar-width;
+  z-index: $zindex-fixed;
 
   @media (max-width: 767.98px) {
     top: auto;
@@ -18,12 +16,11 @@ $bar-width: 60px;
   }
 }
 
-.side-body {
-  height: calc(100vh - 60px);
-  margin-right: $bar-width;
+.side-container {
+  padding-right: $bar-width;
   @include scrollbar;
   @media (max-width: 767.98px) {
-    margin-bottom: $bar-width;
-    margin-right: 0;
+    padding-bottom: $bar-width;
+    padding-right: 0;
   }
 }
