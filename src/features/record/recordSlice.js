@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import getTodayString from 'utils/getDateString'
 import { WORK_TIMESUP } from 'features/clock/clockSlice'
 import getFromLocalstorage from 'utils/getFromLocalStorage'
-import moment from 'moment'
 
+const today = getTodayString()
 const record = createSlice({
   name: 'record',
   initialState: {
