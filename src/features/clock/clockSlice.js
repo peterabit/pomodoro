@@ -43,10 +43,10 @@ const modeTime = {
 const clockSlice = createSlice({
   name: 'clock',
   initialState: {
-    mode: getFromLocalStorage('clock').mode || 'work', // work or rest
+    mode: getFromLocalStorage('clock')?.mode || 'work', // work or rest
     modeTime: modeTime,
     status: 'stop', // running, stop
-    time: getFromLocalStorage('clock').time || modeTime['work']
+    time: getFromLocalStorage('clock')?.time || modeTime['work']
   },
   reducers: {
     stop: {
