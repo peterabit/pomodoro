@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { transSecondToMinute } from 'utils/timeTransform'
 
-const Clock = () => {
+const Clock = ({ className = '' }) => {
   const { time, modeTime, mode } = useSelector(({ clock }) => clock)
   const secondTimd = transSecondToMinute(time)
   const leftSlice = useRef()
@@ -22,7 +22,9 @@ const Clock = () => {
     }
   }, [time, mode])
   return (
-    <div className="clock mr-5 d-flex justify-content-center align-items-center">
+    <div
+      className={`clock d-flex justify-content-center align-items-center ${className}`}
+    >
       <div className="clock__slice--left" />
       <div ref={leftSlice} className="clock__cover-slice--left" />
       <div className="clock__slice--right" />

@@ -11,7 +11,7 @@ const ClockControl = () => {
   const toggle = () => dispatch(toggleMode())
   const status = useSelector(({ clock }) => clock.status)
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center">
+    <div className="d-flex flex-row flex-md-column justify-content-center align-items-center">
       <Button
         variant="link"
         onClick={toggle}

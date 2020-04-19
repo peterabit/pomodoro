@@ -9,14 +9,14 @@ const Ring = () => {
   const restRing = useSelector(({ ring }) => ring.restRing)
   const dispatch = useDispatch()
   return (
-    <div className="container pt-7">
+    <div className="container py-4 py-md-7">
       <div className="row">
         <div className="col-lg-2">
           <h1 className="mb-2 text-pink">Rings</h1>
         </div>
         <div className="col pt-3">
           <div className="d-flex flex-wrap mb-5">
-            <div className="mr-5">
+            <div className="mr-md-5">
               <h2 className="h5 mr-3 text-pink">work</h2>
               <Button variant="link" onClick={() => dispatch(play(workRing))}>
                 <i className="fas fa-bell fa-lg mr-2 opacity-weak align-baseline" />

@@ -38,4 +38,30 @@
       transition: transform 1s linear;
     }
   }
+
+  @media (max-width: 575.98px) {
+    $width: 250px;
+    
+    @include circle($width);
+    & .clock__slice {
+      &--left {
+        @include left-circle($width - 1);
+        @include circle-border(left, $border-width, $border-color);
+      }
+      &--right {
+        @include right-circle($width - 1);
+        @include circle-border(right, $border-width, $border-color);
+      }
+    }
+    & .clock__cover-slice {
+      &--right {
+        @include right-circle($width);
+        background-color: $body-bg;
+      }
+      &--left {
+        @include left-circle($width);
+        background-color: $body-bg;
+      }
+    }
+  }
 }

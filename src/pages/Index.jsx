@@ -8,21 +8,14 @@ import Times from 'features/record/Times'
 const Index = () => {
   return (
     <>
-      <div className="container">
-        <div className="row vh-100">
-          <div className="col-lg-7">
-            <div className="d-flex h-100 justify-content-center align-items-center">
-              <Clock />
-              <ClockControl />
-            </div>
+      <div className="container h-100 d-flex align-items-center">
+        <div className="row">
+          <div className="col-lg-7 d-flex flex-column flex-md-row justify-content-center align-items-center">
+            <Clock className="mr-md-5" />
+            <ClockControl />
           </div>
-          <div className="col-lg-4 d-flex flex-column justify-content-center">
-            <Times
-              className="mb-3"
-              style={{
-                marginTop: '-75px',
-              }}
-            />
+          <div className="col-lg-4 d-none d-md-flex flex-column justify-content-center">
+            <Times className="mb-3" />
             <TodoInput outline />
             <UndoneTodoList />
           </div>

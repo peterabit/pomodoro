@@ -1,3 +1,4 @@
+$bar-width: 60px;
 .sidebar {
   position: absolute;
   display: flex;
@@ -6,5 +7,23 @@
   right: 0;
   top: 0;
   height: 100vh;
-  width: 60px;
+  width: $bar-width;
+
+  @media (max-width: 767.98px) {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: $bar-width;
+    flex-direction: row;
+  }
+}
+
+.side-body {
+  height: calc(100vh - 60px);
+  margin-right: $bar-width;
+  @include scrollbar;
+  @media (max-width: 767.98px) {
+    margin-bottom: $bar-width;
+    margin-right: 0;
+  }
 }

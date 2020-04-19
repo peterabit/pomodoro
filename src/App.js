@@ -15,7 +15,7 @@ function App() {
     <>
       <Router>
         <SideBar />
-        <div className="overflow-hidden min-vh-100 px-3" style={{ marginRight: '60px' }}>
+        <div className="side-body px-3">
           <Switch>
             <Route path="/report">
               <Report />
