@@ -1,17 +1,15 @@
-@mixin circle($width) {
-  width: $width;
-  height: $width;
+@mixin circle() {
   border-radius: 50%;
 }
-@mixin left-circle($width) {
-  width: $width / 2;
-  height: $width;
+@mixin left-circle() {
+  width: 50%;
+  height: 100%;
   border-top-left-radius: 100% 50%;
   border-bottom-left-radius: 100% 50%;
 }
-@mixin right-circle($width) {
-  width: $width / 2;
-  height: $width;
+@mixin right-circle() {
+  width: 50%;
+  height: 100%;
   border-top-right-radius: 100% 50%;
   border-bottom-right-radius: 100% 50%;
 }

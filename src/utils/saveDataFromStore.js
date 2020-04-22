@@ -1,5 +1,5 @@
-const saveDataFromStore = (seletorObj) =>
-  (store) =>
+const saveDataFromStore = (store) =>
+  (seletorObj) =>
     () => {
       const state = store.getState()
       const keys = Object.keys(seletorObj)

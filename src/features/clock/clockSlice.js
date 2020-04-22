@@ -36,7 +36,7 @@ export const start = createAsyncThunk(
 )
 
 const modeTime = {
-  work: 1800,
+  work: 1500,
   rest: 300
 }
 

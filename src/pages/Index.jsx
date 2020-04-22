@@ -10,7 +10,9 @@ const Index = () => {
     <>
       <div className="row h-100 align-items-center">
         <div className="col-lg-7 pt-5 d-flex flex-column flex-md-row justify-content-center align-items-center">
-          <Clock className="mb-4 mb-md-0 mr-md-5" />
+          <div className="p-clock mb-4 mb-md-0 mr-md-5">
+            <Clock />
+          </div>
           <ClockControl />
         </div>
         <div className="col-lg-4 d-none d-md-flex flex-column justify-content-center">

@@ -1,38 +1,46 @@
 .clock {
-  $width: 400px;
+  $size: 100%;
   $border-width: 7px;
-  @include circle($width);
+  width: $size;
+  height: $size;
   position: relative;
+  @include circle();
 
-  & .clock__slice {
+  .clock__slice {
     &--left {
-      @include left-circle($width - 1);
+      @include left-circle();
       @include circle-border(left, $border-width, $border-color);
       position: absolute;
-      top: 0.5px;
-      left: 0.5px;
+      top: 0;
+      left: 0;
     }
     &--right {
-      @include right-circle($width - 1);
+      @include right-circle();
       @include circle-border(right, $border-width, $border-color);
       position: absolute;
-      top: 0.5px;
-      right: 0.5px;
+      top: 0;
+      right: 0;
     }
   }
-  & .clock__cover-slice {
+  .clock__cover-slice {
     &--right {
-      @include right-circle($width);
+      @include right-circle();
+      width: 50.5%;
+      height: 101%;
       position: absolute;
-      right: 0;
+      top: -.5%;
+      right: -.25%;
       background-color: $body-bg;
       transform-origin: 0 50%;
       transition: transform 1s linear;
     }
     &--left {
-      @include left-circle($width);
+      @include left-circle();
+      width: 50.5%;
+      height: 101%;
       position: absolute;
-      left: 0;
+      top: -.5%;
+      left: -.25%;
       background-color: $body-bg;
       transform-origin: 100% 50%;
       transition: transform 1s linear;
@@ -40,26 +48,24 @@
   }
 
   @media (max-width: 575.98px) {
-    $width: 250px;
-    
-    @include circle($width);
-    & .clock__slice {
+    @include circle();
+    .clock__slice {
       &--left {
-        @include left-circle($width - 1);
+        @include left-circle();
         @include circle-border(left, $border-width, $border-color);
       }
       &--right {
-        @include right-circle($width - 1);
+        @include right-circle();
         @include circle-border(right, $border-width, $border-color);
       }
     }
-    & .clock__cover-slice {
+    .clock__cover-slice {
       &--right {
-        @include right-circle($width);
+        @include right-circle();
         background-color: $body-bg;
       }
       &--left {
-        @include left-circle($width);
+        @include left-circle();
         background-color: $body-bg;
       }
     }
