@@ -1,10 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { hot } from 'react-hot-loader'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SideBar from 'components/SideBar'
 import Index from 'pages/Index'
 import Report from 'pages/Report'
@@ -12,7 +8,7 @@ import Ring from 'pages/Ring'
 
 function App() {
   return (
-    <Router>
+    <Router basename="pomodoro">
       <div className="side-container vh-100">
         <SideBar />
         <div className="scrollbar h-100">
@@ -32,7 +28,7 @@ function App() {
         </div>
       </div>
     </Router>
-  );
+  )
 }
 
-export default hot(module)(App);
+export default hot(module)(App)

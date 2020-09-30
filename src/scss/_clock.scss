@@ -28,8 +28,8 @@
       width: 50.5%;
       height: 101%;
       position: absolute;
-      top: -.5%;
-      right: -.25%;
+      top: -0.5%;
+      right: -0.25%;
       background-color: $body-bg;
       transform-origin: 0 50%;
       transition: transform 1s linear;
@@ -39,8 +39,8 @@
       width: 50.5%;
       height: 101%;
       position: absolute;
-      top: -.5%;
-      left: -.25%;
+      top: -0.5%;
+      left: -0.25%;
       background-color: $body-bg;
       transform-origin: 100% 50%;
       transition: transform 1s linear;
@@ -61,11 +61,9 @@
     }
     .clock__cover-slice {
       &--right {
-        @include right-circle();
         background-color: $body-bg;
       }
       &--left {
-        @include left-circle();
         background-color: $body-bg;
       }
     }
